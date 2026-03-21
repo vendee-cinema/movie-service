@@ -30,6 +30,8 @@
 		"@nestjs/platform-express": "^11.0.1",
 		"@vendee-cinema/common": "^1.2.0",
 		"@vendee-cinema/contracts": "^1.2.0",
+		"drizzle-orm": "^0.45.1",
+		"pg": "^8.20.0",
 		"reflect-metadata": "^0.2.2",
 		"rxjs": "^7.8.1"
 	},
@@ -45,6 +47,7 @@
 		"@types/supertest": "^6.0.2",
 		"@vendee-cinema/core": "^1.0.4",
 		"cross-env": "^10.1.0",
+		"drizzle-kit": "^0.31.10",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-prettier": "^5.2.2",
