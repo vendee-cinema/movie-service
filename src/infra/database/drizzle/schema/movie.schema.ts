@@ -1,5 +1,12 @@
 import { relations } from 'drizzle-orm'
-import { integer, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
+import {
+	integer,
+	pgTable,
+	text,
+	timestamp,
+	uuid,
+	varchar
+} from 'drizzle-orm/pg-core'
 
 import { base } from './base.schema'
 import { category } from './category.schema'
@@ -17,10 +24,9 @@ export const movie = pgTable('movies', {
 	ratingAge: integer('rating_age').default(0),
 	country: varchar('country', { length: 255 }),
 
-	categoryId: varchar('category_id', { length: 36 }).references(
-		() => category.id,
-		{ onDelete: 'cascade' }
-	)
+	categoryId: uuid('category_id').references(() => category.id, {
+		onDelete: 'cascade'
+	})
 })
 
 export const movieRelations = relations(movie, ({ one }) => ({
