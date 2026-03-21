@@ -1,6 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { integer, pgTable, text, varchar } from 'drizzle-orm/pg-core'
-import { timestamp } from 'drizzle-orm/pg-core'
+import { integer, pgTable, text, timestamp, varchar } from 'drizzle-orm/pg-core'
 
 import { base } from './base.schema'
 import { category } from './category.schema'
