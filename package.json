@@ -20,6 +20,7 @@
 		"test:cov": "jest --coverage",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
+		"db:seed": "node -r tsconfig-paths/register -r ts-node/register src/infra/database/seed.ts",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "ts-node ./src/infra/database/drizzle/migration.runner.ts",
 		"db:studio": "drizzle-kit studio",

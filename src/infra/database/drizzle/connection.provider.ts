@@ -13,7 +13,10 @@ export const connectionProvider: Provider = {
 			user: configService.getOrThrow<string>('DATABASE_USER'),
 			password: configService.getOrThrow<string>('DATABASE_PASSWORD'),
 			database: configService.getOrThrow<string>('DATABASE_NAME'),
-			ssl: configService.getOrThrow<boolean>('DATABASE_SSL')
+			ssl:
+				configService.getOrThrow<string>('DATABASE_SSL') === 'true'
+					? true
+					: false
 		})
 		await client.connect()
 		return client
