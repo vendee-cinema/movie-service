@@ -3,7 +3,7 @@ import { desc } from 'drizzle-orm'
 import { NodePgDatabase } from 'drizzle-orm/node-postgres'
 
 import { DRIZZLE_DB } from '@/infra/database/drizzle'
-import { category } from '@/infra/database/drizzle/schema'
+import { categories } from '@/infra/database/drizzle/schema'
 
 @Injectable()
 export class CategoryRepository {
@@ -12,11 +12,11 @@ export class CategoryRepository {
 	public async findAll() {
 		return await this.db
 			.select({
-				id: category.id,
-				title: category.title,
-				slug: category.slug
+				id: categories.id,
+				title: categories.title,
+				slug: categories.slug
 			})
-			.from(category)
-			.orderBy(desc(category.createdAt))
+			.from(categories)
+			.orderBy(desc(categories.createdAt))
 	}
 }

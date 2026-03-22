@@ -4,7 +4,7 @@ import { and, desc, eq, gt, isNull, lte, or, sql } from 'drizzle-orm'
 import { NodePgDatabase } from 'drizzle-orm/node-postgres'
 
 import { DRIZZLE_DB } from '@/infra/database/drizzle'
-import { category, movie } from '@/infra/database/drizzle/schema'
+import { categories, movies } from '@/infra/database/drizzle/schema'
 
 @Injectable()
 export class MovieRepository {
@@ -13,17 +13,19 @@ export class MovieRepository {
 	private buildWhere(filter: ListMoviesRequest) {
 		const now = new Date()
 		const conditions = []
-		if (filter.category === 'now') conditions.push(lte(movie.releaseDate, now))
+		if (filter.category === 'now') conditions.push(lte(movies.releaseDate, now))
 		else if (filter.category === 'soon')
-			conditions.push(or(gt(movie.releaseDate, now), isNull(movie.releaseDate)))
+			conditions.push(
+				or(gt(movies.releaseDate, now), isNull(movies.releaseDate))
+			)
 		else if (filter.category && filter.category !== 'all')
-			conditions.push(eq(category.slug, filter.category))
+			conditions.push(eq(categories.slug, filter.category))
 		return conditions.length ? and(...conditions) : undefined
 	}
 
 	private buildOrder(filter: ListMoviesRequest) {
 		if (filter.random) return sql`RANDOM()`
-		return desc(movie.releaseDate)
+		return desc(movies.releaseDate)
 	}
 
 	public async findAll(filter: ListMoviesRequest) {
@@ -32,15 +34,15 @@ export class MovieRepository {
 
 		const query = this.db
 			.select({
-				id: movie.id,
-				title: movie.title,
-				slug: movie.title,
-				poster: movie.poster,
-				ratingAge: movie.ratingAge,
-				releaseDate: movie.releaseDate
+				id: movies.id,
+				title: movies.title,
+				slug: movies.title,
+				poster: movies.poster,
+				ratingAge: movies.ratingAge,
+				releaseDate: movies.releaseDate
 			})
-			.from(movie)
-			.leftJoin(category, eq(movie.categoryId, category.id))
+			.from(movies)
+			.leftJoin(categories, eq(movies.categoryId, categories.id))
 			.where(where)
 			.orderBy(orderBy)
 
@@ -51,8 +53,8 @@ export class MovieRepository {
 	public async findBySlug(slug: string) {
 		return this.db
 			.select()
-			.from(movie)
-			.where(eq(movie.slug, slug))
+			.from(movies)
+			.where(eq(movies.slug, slug))
 			.limit(1)
 			.then(r => r[0] ?? null)
 	}
@@ -60,8 +62,8 @@ export class MovieRepository {
 	public async findById(id: string) {
 		return this.db
 			.select()
-			.from(movie)
-			.where(eq(movie.id, id))
+			.from(movies)
+			.where(eq(movies.id, id))
 			.limit(1)
 			.then(r => r[0] ?? null)
 	}

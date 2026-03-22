@@ -9,9 +9,9 @@ import {
 } from 'drizzle-orm/pg-core'
 
 import { base } from './base.schema'
-import { category } from './category.schema'
+import { categories } from './categories.schema'
 
-export const movie = pgTable('movies', {
+export const movies = pgTable('movies', {
 	...base,
 	title: varchar('title', { length: 255 }).notNull(),
 	slug: varchar('slug', { length: 255 }).notNull().unique(),
@@ -24,14 +24,14 @@ export const movie = pgTable('movies', {
 	ratingAge: integer('rating_age').default(0),
 	country: varchar('country', { length: 255 }),
 
-	categoryId: uuid('category_id').references(() => category.id, {
+	categoryId: uuid('category_id').references(() => categories.id, {
 		onDelete: 'cascade'
 	})
 })
 
-export const movieRelations = relations(movie, ({ one }) => ({
-	category: one(category, {
-		fields: [movie.categoryId],
-		references: [category.id]
+export const movieRelations = relations(movies, ({ one }) => ({
+	category: one(categories, {
+		fields: [movies.categoryId],
+		references: [categories.id]
 	})
 }))

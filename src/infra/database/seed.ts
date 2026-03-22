@@ -2,7 +2,7 @@ import * as dotenv from 'dotenv'
 import { drizzle } from 'drizzle-orm/node-postgres'
 import { Pool } from 'pg'
 
-import { category, movie } from './drizzle/schema'
+import { categories, movies } from './drizzle/schema'
 
 dotenv.config()
 
@@ -280,17 +280,17 @@ async function main() {
 
 	console.log('Seeding categories...')
 	await db
-		.insert(category)
+		.insert(categories)
 		.values([...CATEGORIES])
 		.onConflictDoNothing()
 	console.log('Categories seeding completed')
 
-	const dbCategories = await db.select().from(category)
+	const dbCategories = await db.select().from(categories)
 	const categoryMap = new Map(dbCategories.map(c => [c.slug, c.id]))
 
 	console.log('Seeding movies...')
 	await db
-		.insert(movie)
+		.insert(movies)
 		.values(
 			MOVIES.map(movie => ({
 				...movie,

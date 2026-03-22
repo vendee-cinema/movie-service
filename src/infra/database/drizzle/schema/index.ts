@@ -1,3 +1,3 @@
 export * from './base.schema'
-export * from './category.schema'
-export * from './movie.schema'
+export * from './categories.schema'
+export * from './movies.schema'
