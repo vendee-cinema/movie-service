@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { ListMoviesRequest } from '@vendee-cinema/contracts/gen/ts/movie'
+import { ListMoviesRequest } from '@vendee-cinema/contracts/movie'
 import { and, desc, eq, gt, isNull, lte, or, sql } from 'drizzle-orm'
 import { NodePgDatabase } from 'drizzle-orm/node-postgres'
 

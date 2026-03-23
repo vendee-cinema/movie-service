@@ -5,7 +5,7 @@ import type {
 	GetMovieRequest,
 	ListMoviesRequest,
 	ListMoviesResponse
-} from '@vendee-cinema/contracts/gen/ts/movie'
+} from '@vendee-cinema/contracts/movie'
 
 import { movies } from '@/infra/database/drizzle/schema'
 

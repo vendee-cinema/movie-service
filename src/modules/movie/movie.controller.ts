@@ -5,7 +5,7 @@ import type {
 	GetMovieResponse,
 	ListMoviesRequest,
 	ListMoviesResponse
-} from '@vendee-cinema/contracts/gen/ts/movie'
+} from '@vendee-cinema/contracts/movie'
 
 import { MovieService } from './movie.service'
 

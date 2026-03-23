@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common'
 import { GrpcMethod } from '@nestjs/microservices'
-import type { GetAllCategoriesResponse } from '@vendee-cinema/contracts/gen/ts/category'
+import type { GetAllCategoriesResponse } from '@vendee-cinema/contracts/category'
 
 import { CategoryService } from './category.service'
 

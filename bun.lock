@@ -13,8 +13,8 @@
         "@nestjs/mapped-types": "*",
         "@nestjs/microservices": "^11.1.17",
         "@nestjs/platform-express": "^11.0.1",
-        "@vendee-cinema/common": "^1.2.3",
-        "@vendee-cinema/contracts": "^1.2.3",
+        "@vendee-cinema/common": "^1.2.5",
+        "@vendee-cinema/contracts": "^1.2.14",
         "drizzle-orm": "^0.45.1",
         "ioredis": "^5.10.1",
         "pg": "^8.20.0",
@@ -517,9 +517,9 @@
 
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.11.1", "", { "os": "win32", "cpu": "x64" }, "sha512-lrW200hZdbfRtztbygyaq/6jP6AKE8qQN2KvPcJ+x7wiD038YtnYtZ82IMNJ69GJibV7bwL3y9FgK+5w/pYt6g=="],
 
-    "@vendee-cinema/common": ["@vendee-cinema/common@1.2.3", "", { "dependencies": { "@nestjs/common": "^11.1.17", "@nestjs/config": "^4.0.3", "@nestjs/microservices": "^11.1.17", "@vendee-cinema/contracts": "^1.2.3" } }, "sha512-fAuPlG3mpwsQ4pZ0/t+2191Ob/5ynWSNeFYshqNE50B6N8/AGNUTcgXfif5GdpeBfDrXGBKpPpaPhIZhkJau+Q=="],
+    "@vendee-cinema/common": ["@vendee-cinema/common@1.2.5", "", { "dependencies": { "@nestjs/common": "^11.1.17", "@nestjs/config": "^4.0.3", "@nestjs/microservices": "^11.1.17", "@vendee-cinema/contracts": "^1.2.14" } }, "sha512-XdTbR3UoN52b/lYKf914Xc1IJ0rAmALbV9X10zvBJ4JbIqszKs5wyh+PGzN4P03mmu1mwrADGzFO1ER9v5SfqA=="],
 
-    "@vendee-cinema/contracts": ["@vendee-cinema/contracts@1.2.3", "", { "dependencies": { "@nestjs/microservices": "^11.1.16", "rxjs": "^7.8.2", "ts-proto": "^2.11.4" } }, "sha512-OjZPLH7iL8mCdHF/VVFnsYgKcfUvkH4AL2DQENQWUx5ehF8AEw8Qjs1WUEyNE1IseYqC5QhUpO1V6+9hc1B/ew=="],
+    "@vendee-cinema/contracts": ["@vendee-cinema/contracts@1.2.14", "", { "dependencies": { "@grpc/grpc-js": "^1.14.3", "@nestjs/microservices": "^11.1.16", "rxjs": "^7.8.2", "ts-proto": "^2.11.4" } }, "sha512-OymjZa61+CSQsVVArNnx0A0JD6eKai0kuT0WNAUMzuN/82vgYVss6su8kXju0d5zPPOAebs1V9p59gz9Kokl+w=="],
 
     "@vendee-cinema/core": ["@vendee-cinema/core@1.0.4", "", { "dependencies": { "@trivago/prettier-plugin-sort-imports": "6.0.2" }, "peerDependencies": { "prettier": "^3.8.1" } }, "sha512-Ik86wW9E01v5/4Ko8qkmhHOSGJgjbTQB28KWJ/23sxN0A0dKkR8pQ9V4lcN38py+QbvX4SlgT4DoUNfSbzf3qw=="],
 
